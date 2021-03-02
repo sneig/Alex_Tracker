@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Alex\Tracker\Model\Source\Config\Mode">
+        <arguments>
+            <argument name="modeOptions" xsi:type="array">
+                <item name="async" xsi:type="array">
+                    <item name="value" xsi:type="const">Alex\Tracker\Model\TrackingProcessor\AsyncProcessorInterface::ASYNC_MODE</item>
+                    <item name="label" xsi:type="string">Async</item>
+                </item>
+                <item name="sync" xsi:type="array">
+                    <item name="value" xsi:type="const">Alex\Tracker\Model\TrackingProcessor\SyncProcessorInterface::SYNC_MODE</item>
+                    <item name="label" xsi:type="string">Sync</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Alex\Tracker\Model\TrackingProcessorFactory">
+        <arguments>
+            <argument name="processors" xsi:type="array">
+                <item name="async" xsi:type="object">Alex\Tracker\Model\TrackingProcessor\AsyncProcessor\Proxy</item>
+                <item name="sync" xsi:type="object">Alex\Tracker\Model\TrackingProcessor\SyncProcessor\Proxy</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Alex\Tracker\Model\TrackedProductConsumer">
+        <arguments>
+            <argument name="syncProcessor" xsi:type="object">Alex\Tracker\Model\TrackingProcessor\SyncProcessor</argument>
+        </arguments>
+    </type>
+    <preference for="Alex\Tracker\Api\Data\TransferInterface" type="Alex\Tracker\Model\Transfer" />
+    <preference for="Alex\Tracker\Api\TrackerRepositoryInterface" type="Alex\Tracker\Repository\TrackerRepository" />
+    <preference for="Alex\Tracker\Api\Data\TrackingSearchResultsInterface" type="Alex\Tracker\Model\TrackingSearchResults" />
+    <preference for="Alex\Tracker\Api\Data\TrackerInterface" type="Alex\Tracker\Model\Tracker" />
+</config>

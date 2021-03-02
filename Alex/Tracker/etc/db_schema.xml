@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="tracked_data" resource="default" engine="innodb" comment="Tracked Data">
+        <column name="entity_id" xsi:type="int" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Entity ID"/>
+        <column name="tracking_code" xsi:type="varchar" length="255" nullable="false" comment="Tracking Code"/>
+        <column name="tracking_message" xsi:type="text" nullable="false" comment="Tracking Message"/>
+        <column name="sku" xsi:type="varchar" length="64" nullable="false" comment="SKU"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Creation Time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="TRACKED_DATA_SKU" indexType="btree">
+            <column name="sku"/>
+        </index>
+    </table>
+</schema>

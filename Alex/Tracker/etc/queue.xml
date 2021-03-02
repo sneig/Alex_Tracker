@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/queue.xsd">
+    <broker topic="track_product.action" exchange="magento-db" type="db">
+        <queue name="track_product.action" consumer="track_product.action" consumerInstance="Magento\Framework\MessageQueue\Consumer" handler="Alex\Tracker\Model\TrackedProductConsumer::process"/>
+    </broker>
+</config>

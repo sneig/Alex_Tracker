@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="Alex" translate="label" sortOrder="70">
+            <label>Alex Extensions</label>
+        </tab>
+        <section id="alex_tracker" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Tracker</label>
+            <tab>Alex</tab>
+            <resource>Alex_Tracker::tracker</resource>
+            <group id="general" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <label>Enable</label>
+                </field>
+                <field id="mode" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <source_model>Alex\Tracker\Model\Source\Config\Mode</source_model>
+                    <label>Mode</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

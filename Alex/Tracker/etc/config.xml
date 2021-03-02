@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Store/etc/config.xsd">
+    <default>
+        <alex_tracker>
+            <general>
+                <enabled>1</enabled>
+                <mode>async</mode>
+            </general>
+        </alex_tracker>
+    </default>
+</config>

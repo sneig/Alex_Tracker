@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Communication/etc/communication.xsd">
+    <topic name="track_product.action" request="Alex\Tracker\Api\Data\TransferInterface">
+        <handler name="track_product.action" type="Alex\Tracker\Model\TrackedProductConsumer" method="process" />
+    </topic>
+</config>
